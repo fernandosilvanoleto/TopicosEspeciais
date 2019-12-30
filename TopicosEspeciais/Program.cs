@@ -48,14 +48,15 @@ namespace TopicosEspeciais
                 DateTime dateContact = DateTime.ParseExact(Console.ReadLine(), "dd/MM/yyyy", CultureInfo.InvariantCulture);
 
                 Console.Write("Contract Value: ");
-                double valueContract = double.Parse(Console.ReadLine());
+                double valueContract = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
 
-                Contract contract = new Contract(number, dateContact, valueContract);
+                Contract contract = new Contract(number, dateContact, valueContract, new PayPalInstall());
                 
                 Console.WriteLine("Enter number of installments: ");
-                int parcelas = int.Parse(Console.ReadLine());
 
+                int parcelas = int.Parse(Console.ReadLine());
                 contract.CalculationsParcelas(parcelas);
+
                 Console.WriteLine(contract);
 
             }
