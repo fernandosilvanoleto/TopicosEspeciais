@@ -17,6 +17,7 @@ namespace TopicosEspeciais.Services
             this.PricePerHour = pricePerHour;
             this.PricePerDay = PricePerDay;
             this._taxService = taxService;
+            // INJEÇÃO DE DEPENDÊNCIA POR MEIO DE CONSTRUTOR - INFORMAMOS POR MEIO DO CONSTRUTOR
         }
 
         public void ProcessInvoice(CarRental carRental)
