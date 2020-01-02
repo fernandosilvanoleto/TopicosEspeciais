@@ -14,4 +14,8 @@
     <None Remove="notes\**" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Imgs\" />
+  </ItemGroup>
+
 </Project>

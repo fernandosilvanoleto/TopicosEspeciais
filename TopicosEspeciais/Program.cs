@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using TopicosEspeciais.Entities;
 using TopicosEspeciais.Services;
 using System.Globalization;
+using TopicosEspeciais.Model.Entities_Her_Inter;
+using TopicosEspeciais.Model.Enums;
 
 namespace TopicosEspeciais
 {
@@ -14,6 +16,7 @@ namespace TopicosEspeciais
             try
             {
                 /*
+                 * ATIVIDADE 01
                 Console.WriteLine("Enter Rental data:");
                 Console.WriteLine("Car Model: ");
                 string model = Console.ReadLine();
@@ -40,6 +43,11 @@ namespace TopicosEspeciais
                 Console.WriteLine(carRental.Invoice);
                 */
 
+                /*
+                 * ATIVIDADE 02
+                 * EXERCÍCIOS PROPOSTOS              
+                
+
                 Console.WriteLine("Enter contract data: ");
                 Console.Write("Number: ");
                 int number = int.Parse(Console.ReadLine());
@@ -58,6 +66,14 @@ namespace TopicosEspeciais
                 contract.CalculationsParcelas(parcelas);
 
                 Console.WriteLine(contract);
+                 */
+
+                IShape s1 = new Circle() { Radius = 2.0, ColorAbstractShape = Color.White };
+
+                IShape s2 = new Rectangle() { Width = 3.5, Height = 4.2, ColorAbstractShape = Color.Black };
+
+                Console.WriteLine(s1);
+                Console.WriteLine(s2);
 
             }
             catch (Exception e)
