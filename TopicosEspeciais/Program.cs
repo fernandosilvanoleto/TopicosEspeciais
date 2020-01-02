@@ -6,6 +6,7 @@ using TopicosEspeciais.Services;
 using System.Globalization;
 using TopicosEspeciais.Model.Entities_Her_Inter;
 using TopicosEspeciais.Model.Entities_Her_Multipla;
+using TopicosEspeciais.Model.Entities_IComparable;
 using TopicosEspeciais.Model.Enums;
 
 namespace TopicosEspeciais
@@ -73,7 +74,7 @@ namespace TopicosEspeciais
                 /*
                  * ATIVIDADE 03
                  * COMPARANDO HERANÇA COM INTERFACE
-                
+
                 IShape s1 = new Circle() { Radius = 2.0, ColorAbstractShape = Color.White };
 
                 IShape s2 = new Rectangle() { Width = 3.5, Height = 4.2, ColorAbstractShape = Color.Black };
@@ -85,7 +86,7 @@ namespace TopicosEspeciais
                 /*
                 * ATIVIDADE 04
                 * PROBLEMA DA PIRAMIDE - HERANÇA MÚLTIPLA
-                */
+
 
                 Pinter p = new Pinter() { SerialNumber = 1080 };
                 p.ProcessDoc("My Letter");
@@ -100,6 +101,40 @@ namespace TopicosEspeciais
                 c.ProcessDoc("My Dissertation ProcessDoc");
                 c.Pinters("My Dissertation Pinters");
                 Console.WriteLine(c.Scan());
+
+                */
+                /*
+                * ATIVIDADE 04
+                * IComparable
+                */
+
+                string path = @"G:\Programação_Udemy\C#\TopicosEspeciais\TopicosEspeciais\Files\in.txt";
+
+                try
+                {
+                    using (StreamReader sr = File.OpenText(path))
+                    {
+                        List<Employee> list = new List<Employee>();
+                        while (!sr.EndOfStream) // percorrer o arquivo em lista
+                        {
+                            list.Add(new Employee(sr.ReadLine()));
+                        }
+
+                        list.Sort(); // ordenar a lista
+
+                        foreach (Employee emp in list)
+                        {
+                            Console.WriteLine(emp);
+                        }
+                    }
+                }
+                catch (Exception e)
+                {
+
+                    Console.WriteLine("Error Intern: ");
+                    Console.WriteLine(e.Message);
+                }
+
 
             }
             catch (Exception e)
