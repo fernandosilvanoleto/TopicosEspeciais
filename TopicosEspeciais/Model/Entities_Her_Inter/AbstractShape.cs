@@ -9,6 +9,7 @@ namespace TopicosEspeciais.Model.Entities_Her_Inter
     {
         public Color ColorAbstractShape { get; set; }
 
-        public abstract double Area();
+        public abstract double Area();       
+        
     }
 }

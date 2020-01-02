@@ -5,6 +5,7 @@ using TopicosEspeciais.Entities;
 using TopicosEspeciais.Services;
 using System.Globalization;
 using TopicosEspeciais.Model.Entities_Her_Inter;
+using TopicosEspeciais.Model.Entities_Her_Multipla;
 using TopicosEspeciais.Model.Enums;
 
 namespace TopicosEspeciais
@@ -46,7 +47,7 @@ namespace TopicosEspeciais
                 /*
                  * ATIVIDADE 02
                  * EXERCÍCIOS PROPOSTOS              
-                
+
 
                 Console.WriteLine("Enter contract data: ");
                 Console.Write("Number: ");
@@ -59,7 +60,7 @@ namespace TopicosEspeciais
                 double valueContract = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
 
                 Contract contract = new Contract(number, dateContact, valueContract, new PayPalInstall());
-                
+
                 Console.WriteLine("Enter number of installments: ");
 
                 int parcelas = int.Parse(Console.ReadLine());
@@ -68,12 +69,37 @@ namespace TopicosEspeciais
                 Console.WriteLine(contract);
                  */
 
+
+                /*
+                 * ATIVIDADE 03
+                 * COMPARANDO HERANÇA COM INTERFACE
+                
                 IShape s1 = new Circle() { Radius = 2.0, ColorAbstractShape = Color.White };
 
                 IShape s2 = new Rectangle() { Width = 3.5, Height = 4.2, ColorAbstractShape = Color.Black };
 
                 Console.WriteLine(s1);
                 Console.WriteLine(s2);
+                 */
+
+                /*
+                * ATIVIDADE 04
+                * PROBLEMA DA PIRAMIDE - HERANÇA MÚLTIPLA
+                */
+
+                Pinter p = new Pinter() { SerialNumber = 1080 };
+                p.ProcessDoc("My Letter");
+                p.Pinters("My Letter");
+
+                Scanner s = new Scanner() { SerialNumber = 2003 };
+                s.ProcessDoc("My Email");
+                Console.WriteLine(s.Scan());
+
+                ComboDevice c = new ComboDevice { SerialNumber = 3291 };
+
+                c.ProcessDoc("My Dissertation ProcessDoc");
+                c.Pinters("My Dissertation Pinters");
+                Console.WriteLine(c.Scan());
 
             }
             catch (Exception e)
