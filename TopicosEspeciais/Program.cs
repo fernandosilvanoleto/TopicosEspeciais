@@ -8,6 +8,7 @@ using TopicosEspeciais.Model.Entities_Her_Inter;
 using TopicosEspeciais.Model.Entities_Her_Multipla;
 using TopicosEspeciais.Model.Entities_IComparable;
 using TopicosEspeciais.Model.Enums;
+//using TopicosEspeciais.Extensions;
 
 namespace TopicosEspeciais
 {
@@ -105,8 +106,8 @@ namespace TopicosEspeciais
                 */
                 /*
                 * ATIVIDADE 04
-                * IComparable
-                */
+                * Implementando IComparable
+
 
                 string path = @"G:\Programação_Udemy\C#\TopicosEspeciais\TopicosEspeciais\Files\in.txt";
 
@@ -134,14 +135,26 @@ namespace TopicosEspeciais
                     Console.WriteLine("Error Intern: ");
                     Console.WriteLine(e.Message);
                 }
+                */
+                /*
+                * ATIVIDADE 04
+                * Implementando Métodos Extensions
+                * 
+                */
 
+                DateTime dt = new DateTime(2019, 11, 16, 8, 10, 45);
+                Console.WriteLine(dt.ElapsedTime());
+                
+
+                string s1 = "Good Morning dear Students!";
+                Console.WriteLine(s1.Cut(10));
 
             }
             catch (Exception e)
-            {
-                Console.WriteLine("Error: ");
-                Console.WriteLine(e.Message);
-            }
-        }
-    }
+{
+Console.WriteLine("Error: ");
+Console.WriteLine(e.Message);
+}
+}
+}
 }
