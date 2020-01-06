@@ -9,3 +9,13 @@ G:\Programação_Udemy\C#\TopicosEspeciais\TopicosEspeciais\obj\Debug\netcoreapp
 G:\Programação_Udemy\C#\TopicosEspeciais\TopicosEspeciais\obj\Debug\netcoreapp2.1\TopicosEspeciais.AssemblyInfo.cs
 G:\Programação_Udemy\C#\TopicosEspeciais\TopicosEspeciais\obj\Debug\netcoreapp2.1\TopicosEspeciais.dll
 G:\Programação_Udemy\C#\TopicosEspeciais\TopicosEspeciais\obj\Debug\netcoreapp2.1\TopicosEspeciais.pdb
+C:\Users\fernando.sn\Documents\Visual Studio 2015\Fernando\TopicosEspeciais\TopicosEspeciais\bin\Debug\netcoreapp2.1\TopicosEspeciais.deps.json
+C:\Users\fernando.sn\Documents\Visual Studio 2015\Fernando\TopicosEspeciais\TopicosEspeciais\bin\Debug\netcoreapp2.1\TopicosEspeciais.runtimeconfig.json
+C:\Users\fernando.sn\Documents\Visual Studio 2015\Fernando\TopicosEspeciais\TopicosEspeciais\bin\Debug\netcoreapp2.1\TopicosEspeciais.runtimeconfig.dev.json
+C:\Users\fernando.sn\Documents\Visual Studio 2015\Fernando\TopicosEspeciais\TopicosEspeciais\bin\Debug\netcoreapp2.1\TopicosEspeciais.dll
+C:\Users\fernando.sn\Documents\Visual Studio 2015\Fernando\TopicosEspeciais\TopicosEspeciais\bin\Debug\netcoreapp2.1\TopicosEspeciais.pdb
+C:\Users\fernando.sn\Documents\Visual Studio 2015\Fernando\TopicosEspeciais\TopicosEspeciais\obj\Debug\netcoreapp2.1\TopicosEspeciais.csprojAssemblyReference.cache
+C:\Users\fernando.sn\Documents\Visual Studio 2015\Fernando\TopicosEspeciais\TopicosEspeciais\obj\Debug\netcoreapp2.1\TopicosEspeciais.AssemblyInfoInputs.cache
+C:\Users\fernando.sn\Documents\Visual Studio 2015\Fernando\TopicosEspeciais\TopicosEspeciais\obj\Debug\netcoreapp2.1\TopicosEspeciais.AssemblyInfo.cs
+C:\Users\fernando.sn\Documents\Visual Studio 2015\Fernando\TopicosEspeciais\TopicosEspeciais\obj\Debug\netcoreapp2.1\TopicosEspeciais.dll
+C:\Users\fernando.sn\Documents\Visual Studio 2015\Fernando\TopicosEspeciais\TopicosEspeciais\obj\Debug\netcoreapp2.1\TopicosEspeciais.pdb
