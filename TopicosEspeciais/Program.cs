@@ -103,9 +103,9 @@ namespace TopicosEspeciais
                 */
 
                 /*
-                 * IMPLEMENTANDO PREDICATE (SYSTEM)
+                 * IMPLEMENTANDO PREDICATE (SYSTEM) - 07/01/2020
                  * Representa um método que recebe um objeto do tipo T e retorna um valor booleano
-                 */
+                 
 
                 List<ProductLAMBDA> list = new List<ProductLAMBDA>();
 
@@ -115,6 +115,32 @@ namespace TopicosEspeciais
                 list.Add(new ProductLAMBDA("HD Case", 80.90));
 
                 list.RemoveAll(ProductTest);
+
+                foreach (ProductLAMBDA item in list)
+                {
+                    Console.WriteLine(item);
+                }
+                */
+
+                /*
+                 * Action (System) - 07/01/2020
+                 * Representa um método void que recebe zero ou mais argumentos
+
+                  */
+
+                List<ProductLAMBDA> list = new List<ProductLAMBDA>();
+
+                list.Add(new ProductLAMBDA("TV", 900.00));
+                list.Add(new ProductLAMBDA("Mouse", 50.00));
+                list.Add(new ProductLAMBDA("Tablet", 350.50));
+                list.Add(new ProductLAMBDA("HD Case", 80.90));
+
+                // // função lambda que aumenta os preços dos produtos em 10% os valores das coisas de cada produto
+                Action<ProductLAMBDA> action = p => { p.Price += p.Price * 0.1; };
+
+                list.ForEach(action);
+                // list.ForEach(p => { p.Price += p.Price * 0.1; });
+                // função específica para aumentar os valores
 
                 foreach (ProductLAMBDA item in list)
                 {
@@ -147,7 +173,14 @@ namespace TopicosEspeciais
 
         public static bool ProductTest(ProductLAMBDA p)
         {
+            // excluir da lista produtos menores que 100.00
             return p.Price >= 100.0;
+        }
+
+        static void UpdatePrice(ProductLAMBDA p)
+        {
+            // função simples que atualiza em 10% os valores das coisas de cada produto
+            p.Price += p.Price * 0.1;
         }
 
     }
