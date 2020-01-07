@@ -18,6 +18,9 @@ namespace TopicosEspeciais
 
     //Multiple Delegate só trabalha com VOID
     delegate void BinaryNumericOperationMultiple(double n1, double n2);
+
+    public delegate bool Predicate<in T>(T obj);
+
     class Program
     {
         public static int globalValue = 3;
@@ -60,12 +63,13 @@ namespace TopicosEspeciais
                 Console.WriteLine(string.Join(" ", vect));
 
                 */
+
                 /*
                  * Trabalhando com a DELEGATES - 07/01/2020
                  * DELEGATE -> uma referência (com type safety para um ou mais métodos), ou seja, é um tipo referência
                  * using TopicosEspeciais.LAMBDA.Entities;
-                 */
-
+                 
+                
                 double a = 10;
                 double b = 12;
 
@@ -78,13 +82,13 @@ namespace TopicosEspeciais
                 Console.WriteLine("SIMPLE DELEGATE: " + result);
 
 
-                /* MULTICAST DELEGATES
+                MULTICAST DELEGATES
                  * 
                  * Delegates que guardam a referência para mais de um método
                  * Para adicionar uma referência, pode-se usar o operador +=
                  * A chamada Invoke (ou sintaxe reduzida) executa todos os métodos na ordem em que foram adicionados
                  * Seu uso faz sentido para métodos VOID
-                 */
+                
 
                 double aa = 10;
                 double bb = 12;
@@ -96,6 +100,26 @@ namespace TopicosEspeciais
 
                 opMultiple.Invoke(aa, bb);
                 //opMultiple(aa, bb);
+                */
+
+                /*
+                 * IMPLEMENTANDO PREDICATE (SYSTEM)
+                 * Representa um método que recebe um objeto do tipo T e retorna um valor booleano
+                 */
+
+                List<ProductLAMBDA> list = new List<ProductLAMBDA>();
+
+                list.Add(new ProductLAMBDA("TV", 900.00));
+                list.Add(new ProductLAMBDA("Mouse", 50.00));
+                list.Add(new ProductLAMBDA("Tablet", 350.50));
+                list.Add(new ProductLAMBDA("HD Case", 80.90));
+
+                list.RemoveAll(ProductTest);
+
+                foreach (ProductLAMBDA item in list)
+                {
+                    Console.WriteLine(item);
+                }
 
             }
             catch (Exception e)
@@ -120,5 +144,11 @@ namespace TopicosEspeciais
                 }
             }
         }
+
+        public static bool ProductTest(ProductLAMBDA p)
+        {
+            return p.Price >= 100.0;
+        }
+
     }
 }
