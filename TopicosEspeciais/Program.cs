@@ -10,6 +10,7 @@ using TopicosEspeciais.Model.Entities_IComparable;
 using TopicosEspeciais.Model.Enums;
 using TopicosEspeciais.LAMBDA.Entities;
 //using TopicosEspeciais.Extensions;
+using System.Linq;
 
 namespace TopicosEspeciais
 {
@@ -126,7 +127,7 @@ namespace TopicosEspeciais
                  * Action (System) - 07/01/2020
                  * Representa um método void que recebe zero ou mais argumentos
 
-                  */
+                  
 
                 List<ProductLAMBDA> list = new List<ProductLAMBDA>();
 
@@ -143,6 +144,49 @@ namespace TopicosEspeciais
                 // função específica para aumentar os valores
 
                 foreach (ProductLAMBDA item in list)
+                {
+                    Console.WriteLine(item);
+                }
+                */
+
+                /*
+                 * IMPLEMENTANDO FUNÇÕES DO FUNC (System) - 08/01/2020
+                 * representa um método que recebe zero ou mais argumentos, e retorna um valor
+                 */
+
+                List<ProductLAMBDA> list = new List<ProductLAMBDA>();
+
+                list.Add(new ProductLAMBDA("TV", 900.00));
+                list.Add(new ProductLAMBDA("Mouse", 50.00));
+                list.Add(new ProductLAMBDA("Tablet", 350.50));
+                list.Add(new ProductLAMBDA("HD Case", 80.90));
+
+                // converter as strings em letras maiusculas
+                // fazer importe do using System.Linq;
+
+                // criando um DELEGATE
+
+                Func<ProductLAMBDA, string> func = NameUpper;
+
+                // agora com expressões lambdas
+                Func<ProductLAMBDA, string> funcLambda = p => p.Name.ToUpper();
+
+               // Func<ProductLAMBDA, string> funcLambda = { return p => p.Name.ToUpper(); }
+                            
+
+                List<string> result = list.Select(funcLambda).ToList();
+
+                // agora em INLINE
+
+                List<string> resultinline = list.Select(p => p.Name.ToUpper()).ToList();
+
+                // retornando em maiusculas
+                foreach (string item in result)
+                {
+                    Console.WriteLine(item);
+                }
+                Console.WriteLine("----------------------------------");
+                foreach (string item in resultinline)
                 {
                     Console.WriteLine(item);
                 }
@@ -183,5 +227,10 @@ namespace TopicosEspeciais
             p.Price += p.Price * 0.1;
         }
 
+        // retornar uma string em letras maiusculas
+        static string NameUpper(ProductLAMBDA p)
+        {
+            return p.Name.ToUpper();
+        }
     }
 }
