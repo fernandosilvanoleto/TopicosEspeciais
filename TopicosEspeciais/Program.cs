@@ -152,7 +152,7 @@ namespace TopicosEspeciais
                 /*
                  * IMPLEMENTANDO FUNÇÕES DO FUNC (System) - 08/01/2020
                  * representa um método que recebe zero ou mais argumentos, e retorna um valor
-                 */
+                 
 
                 List<ProductLAMBDA> list = new List<ProductLAMBDA>();
 
@@ -189,6 +189,40 @@ namespace TopicosEspeciais
                 foreach (string item in resultinline)
                 {
                     Console.WriteLine(item);
+                }
+                */
+
+                /*
+                 * CONCEITOS DE LINQ - Language Integrated Query - 08/01/2020
+                 * 
+                 * É um conjunto de tecnologias baseads na integração de funcionalidades de consulta diretamente na linguagem C#
+                 * Namespace: System.Linq
+                 * Possui diversas operações de consulta, cujos parâmetros tipicamente são expressões lambda ou expressões de sintaxe similiar à SQL
+                 * 
+                 * TRABALHANDO COM LINQ
+                 * TRÊS PASSOS
+                        - Criar um data source (coleção, array, recurso de E/S, etc)
+                        - Definir a query
+                        - Executa a query (foreach ou alguma operação terminal)
+                            Execução Tardia
+                 */
+
+                // especificar um data source
+                int[] numeros = new int[] { 2, 3, 4, 5 };
+
+                // define uma query expression
+                // tem que importar o System.Linq;
+
+                // IEnumerable - coleção mais genérica, LINQ gosta dele
+
+                IEnumerable<int> result = numeros
+                                .Where(x => x % 2 == 0) // selecionando e usando condições
+                                .Select(x => x * 10); // usando expressão a lambda para processamento
+
+                // executando a query
+                foreach (int x in result)
+                {
+                    Console.WriteLine(x);
                 }
 
             }
