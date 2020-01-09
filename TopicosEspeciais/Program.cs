@@ -204,8 +204,7 @@ namespace TopicosEspeciais
                         - Criar um data source (coleção, array, recurso de E/S, etc)
                         - Definir a query
                         - Executa a query (foreach ou alguma operação terminal)
-                            Execução Tardia
-                 */
+                            Execução Tardia                 
 
                 // especificar um data source
                 int[] numeros = new int[] { 2, 3, 4, 5 };
@@ -224,6 +223,64 @@ namespace TopicosEspeciais
                 {
                     Console.WriteLine(x);
                 }
+                */
+
+                /*
+                 * Implementando LINQ com LAMBDA - Parte 01
+                 * 
+                 */
+
+                Category c1 = new Category() { Id = 1, Name = "Tools", Tier = 2 };
+                Category c2 = new Category() { Id = 2, Name = "Computers", Tier = 1 };
+                Category c3 = new Category() { Id = 3, Name = "All", Tier = 1 };
+
+                List<Produto> produtos = new List<Produto>()
+                {
+                    new Produto() { Id = 1, Name = "Computador", Price = 1100.0, Category = c2 },
+                    new Produto() { Id = 2, Name = "Hammer", Price = 90.0, Category = c1 },
+                    new Produto() { Id = 3, Name = "TV", Price = 1700.0, Category = c3 },
+                    new Produto() { Id = 4, Name = "Notebook", Price = 1300.0, Category = c2 },
+                    new Produto() { Id = 5, Name = "Saw", Price = 80.0, Category = c1 },
+                    new Produto() { Id = 6, Name = "Tablet", Price = 700.0, Category = c2 },
+                    new Produto() { Id = 7, Name = "Camera", Price = 700.0, Category = c3 },
+                    new Produto() { Id = 8, Name = "Printer", Price = 350.0, Category = c3 },
+                    new Produto() { Id = 9, Name = "MacBok", Price = 1800.0, Category = c2 },
+                    new Produto() { Id = 10, Name = "SoudBar", Price = 700.0, Category = c3 },
+                    new Produto() { Id = 11, Name = "Level", Price = 70.0, Category = c1 }
+                };
+
+                var r1 = produtos.Where(p => p.Category.Tier == 1 && p.Price < 900.0);
+                Print("TIER 1 AND PRICE < 900: ", r1);
+
+                var r2 = produtos.Where(p => p.Category.Name == "Tools").Select(p => p.Name);
+                Print("NAMES OF PRODUCTS FROM TOOLS = ", r2);
+
+                // criando um objeto anônimo no SELECT
+                // OBJETO ANÔNIMO - objeto que não está declarado
+                var r3 = produtos.Where(p => p.Name[0] == 'C').Select(p => new { p.Name, p.Price, CategoryName = p.Category.Name } );
+                Print("NAMES STARTED WITH 'C' AND ANONYMOUS OBJECT = ", r3);
+
+                var r4 = produtos.Where(p => p.Category.Tier == 1).OrderBy(p => p.Price).ThenBy(p => p.Name);
+                Print("TIER 1 ORDER BY PRICE THEN BY NAME = ", r4);
+
+                // paginação
+                var r5 = r4.Skip(2).Take(4);
+                Print("TIER 1 ORDER BY PRICE THEN BY NAME SKIP 2 TAKE 4", r5);
+
+                var r6 = produtos.FirstOrDefault();
+                Console.WriteLine("First Or Default Test 1: " + r6);
+
+                var r7 = produtos.Where(p => p.Price > 3000.0).FirstOrDefault();
+                Console.WriteLine("First Or Default Test 2: " + r7);
+                Console.WriteLine();
+
+                var r8 = produtos.Where(p => p.Id == 3).SingleOrDefault();
+                Console.WriteLine("Single Or Default: " + r8);
+
+                var r9 = produtos.Where(p => p.Id == 30).SingleOrDefault();
+                Console.WriteLine("Single Or Default: " + r9);
+
+                Console.WriteLine();
 
             }
             catch (Exception e)
@@ -266,5 +323,18 @@ namespace TopicosEspeciais
         {
             return p.Name.ToUpper();
         }
+
+        // função auxiliar
+
+        static void Print<T>(String message, IEnumerable<T> collection)
+        {
+            Console.WriteLine(message);
+            foreach (T item in collection)
+            {
+                Console.WriteLine(item);
+            }
+            Console.WriteLine();
+        }
+
     }
 }
