@@ -282,6 +282,37 @@ namespace TopicosEspeciais
 
                 Console.WriteLine();
 
+                var r10 = produtos.Max(p => p.Price);
+                Console.WriteLine("Max Price: " + r10);
+
+                var r11 = produtos.Min(p => p.Price);
+                Console.WriteLine("Min Price: " + r11);
+
+                var r12 = produtos.Where(p => p.Category.Id == 1).Sum(p => p.Price);
+                Console.WriteLine("Category 1 Sum Price: " + r12);
+
+                var r13 = produtos.Where(p => p.Category.Id == 1).Average(p => p.Price);
+                Console.WriteLine("Category 1 Average Price: " + r13);
+
+                var r14 = produtos.Where(p => p.Category.Id == 5).Select(p => p.Price).DefaultIfEmpty(0).Average();
+                Console.WriteLine("Category 5 Average with DefaultIfEmpty Price: " + r14);
+
+                var r15 = produtos.Where(p => p.Category.Id == 1).Select(p => p.Price).Aggregate( (x, y) => x + y );
+                Console.WriteLine("Category 1 Aggregate Sum Price: " + r15);
+
+                var r16 = produtos.GroupBy(p => p.Category);
+
+                Console.WriteLine();
+
+                foreach (IGrouping<Category, Produto> group in r16)
+                {
+                    Console.WriteLine("Category " + group.Key.Name + ":");
+                    foreach (Produto item in group)
+                    {
+                        Console.WriteLine(item);
+                    }
+                    Console.WriteLine();
+                }
             }
             catch (Exception e)
             {
