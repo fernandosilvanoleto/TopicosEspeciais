@@ -21,7 +21,6 @@ namespace TopicosEspeciais
     delegate void BinaryNumericOperationMultiple(double n1, double n2);
 
     public delegate bool Predicate<in T>(T obj);
-
     class Program
     {
         public static int globalValue = 3;
@@ -313,6 +312,13 @@ namespace TopicosEspeciais
                     }
                     Console.WriteLine();
                 }
+
+                /*
+                 * Explicação da Álgebra Relacional e SQL - Nivelamento
+                 * 11/01/2020
+                 *
+                 */
+
             }
             catch (Exception e)
             {

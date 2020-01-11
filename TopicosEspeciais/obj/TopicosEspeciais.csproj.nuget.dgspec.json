@@ -1,25 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\fernando.sn\\Documents\\Visual Studio 2015\\Fernando\\TopicosEspeciais\\TopicosEspeciais\\TopicosEspeciais.csproj": {}
+    "G:\\Programação_Udemy\\C#\\TopicosEspeciais\\TopicosEspeciais\\TopicosEspeciais.csproj": {}
   },
   "projects": {
-    "C:\\Users\\fernando.sn\\Documents\\Visual Studio 2015\\Fernando\\TopicosEspeciais\\TopicosEspeciais\\TopicosEspeciais.csproj": {
+    "G:\\Programação_Udemy\\C#\\TopicosEspeciais\\TopicosEspeciais\\TopicosEspeciais.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\fernando.sn\\Documents\\Visual Studio 2015\\Fernando\\TopicosEspeciais\\TopicosEspeciais\\TopicosEspeciais.csproj",
+        "projectUniqueName": "G:\\Programação_Udemy\\C#\\TopicosEspeciais\\TopicosEspeciais\\TopicosEspeciais.csproj",
         "projectName": "TopicosEspeciais",
-        "projectPath": "C:\\Users\\fernando.sn\\Documents\\Visual Studio 2015\\Fernando\\TopicosEspeciais\\TopicosEspeciais\\TopicosEspeciais.csproj",
-        "packagesPath": "C:\\Users\\fernando.sn\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\fernando.sn\\Documents\\Visual Studio 2015\\Fernando\\TopicosEspeciais\\TopicosEspeciais\\obj\\",
+        "projectPath": "G:\\Programação_Udemy\\C#\\TopicosEspeciais\\TopicosEspeciais\\TopicosEspeciais.csproj",
+        "packagesPath": "C:\\Users\\Fernando\\.nuget\\packages\\",
+        "outputPath": "G:\\Programação_Udemy\\C#\\TopicosEspeciais\\TopicosEspeciais\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Microsoft\\Xamarin\\NuGet\\"
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\fernando.sn\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "C:\\Users\\Fernando\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp2.1"
@@ -43,23 +42,16 @@
         "netcoreapp2.1": {
           "dependencies": {
             "Microsoft.NETCore.App": {
-              "suppressParent": "All",
               "target": "Package",
               "version": "[2.1.0, )",
               "autoReferenced": true
             }
           },
           "imports": [
-            "net461",
-            "net462",
-            "net47",
-            "net471",
-            "net472",
-            "net48"
+            "net461"
           ],
           "assetTargetFallback": true,
-          "warn": true,
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.100\\RuntimeIdentifierGraph.json"
+          "warn": true
         }
       }
     }
