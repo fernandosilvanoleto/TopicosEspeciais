@@ -225,9 +225,9 @@ namespace TopicosEspeciais
                 */
 
                 /*
-                 * Implementando LINQ com LAMBDA - Parte 01
+                 * Implementando LINQ com LAMBDA - Parte 01 e PARTE 02
                  * 
-                 */
+                
 
                 Category c1 = new Category() { Id = 1, Name = "Tools", Tier = 2 };
                 Category c2 = new Category() { Id = 2, Name = "Computers", Tier = 1 };
@@ -324,15 +324,19 @@ namespace TopicosEspeciais
                 Console.WriteLine("Min Price: " + r11);
 
                 var r12 = produtos.Where(p => p.Category.Id == 1).Sum(p => p.Price);
+
                 Console.WriteLine("Category 1 Sum Price: " + r12);
 
                 var r13 = produtos.Where(p => p.Category.Id == 1).Average(p => p.Price);
+
                 Console.WriteLine("Category 1 Average Price: " + r13);
 
                 var r14 = produtos.Where(p => p.Category.Id == 5).Select(p => p.Price).DefaultIfEmpty(0).Average();
+
                 Console.WriteLine("Category 5 Average with DefaultIfEmpty Price: " + r14);
 
                 var r15 = produtos.Where(p => p.Category.Id == 1).Select(p => p.Price).Aggregate( (x, y) => x + y );
+
                 Console.WriteLine("Category 1 Aggregate Sum Price: " + r15);
 
                 var r16 = produtos.GroupBy(p => p.Category);
@@ -366,14 +370,87 @@ namespace TopicosEspeciais
                     }
                     Console.WriteLine();
                 }
+             
+                  // Explicação da Álgebra Relacional e SQL - Nivelamento
+                  // 11/01/2020           
+                 
+              */
 
                 /*
-                 * Explicação da Álgebra Relacional e SQL - Nivelamento
-                 * 11/01/2020
-                 *
+                 * Resolvendo problema de Média - AVG - 14/01/2020
+                 
+                 
+
+                Console.WriteLine("Enter full file path: ");
+                string path = Console.ReadLine();
+
+                List<Vendas> vendas = new List<Vendas>();
+
+                // ler arquivo
+                using (StreamReader sr = File.OpenText(path))
+                {
+                    while (!sr.EndOfStream)
+                    {
+                        // quando não chegar no final do arquivo, continuo lendo
+                        string[] fields = sr.ReadLine().Split(',');
+                        string name = fields[0];
+                        double price = double.Parse(fields[1], CultureInfo.InvariantCulture);
+                        vendas.Add(new Vendas(name, price));
+                    }
+                }
+
+                var avg = vendas.Select(p => p.Price).DefaultIfEmpty(0.0).Average();
+                Console.WriteLine("Average price = " + avg.ToString("F2", CultureInfo.InvariantCulture));
+
+                var names = vendas.Where(p => p.Price < avg).OrderByDescending(p => p.Name).Select(p => p.Name);
+
+                foreach (string item in names)
+                {
+                    Console.WriteLine(item);
+                }
+                */
+
+                /*
+                 * Resolvendo Problema Proposto - 14/01/2020
                  */
 
+                Console.WriteLine("Enter full file path: ");
+                string path = Console.ReadLine();
 
+                Console.WriteLine("Enter Salary: ");
+                double salaryCompare = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+                Console.WriteLine();
+
+                List<Funcionario> funcionarios = new List<Funcionario>();
+
+                // ler arquivo
+                using (StreamReader sr = File.OpenText(path))
+                {
+                    while (!sr.EndOfStream)
+                    {
+                        // quando não chegar no final do arquivo, continuo lendo
+                        string[] fields = sr.ReadLine().Split(',');
+                        string name = fields[0];
+                        string email = fields[1];
+                        double salary = double.Parse(fields[2], CultureInfo.InvariantCulture);
+                        funcionarios.Add(new Funcionario(name, email, salary));
+                    }
+                }
+
+                Console.WriteLine();
+
+                Console.WriteLine("Email of people whose salary is more than " + salaryCompare.ToString("F2", CultureInfo.InvariantCulture));
+
+                var orderEmail = funcionarios.Where(f => f.Salary > salaryCompare).OrderBy(f => f.Email).Select(f => f.Email);
+
+                foreach (string emails in orderEmail)
+                {
+                    Console.WriteLine(emails);
+                }
+
+                var sumSalary = funcionarios.Where(f => f.Name[0] == 'M').Sum(f => f.Salary);
+
+                Console.WriteLine("Sum of Salary of people whose name starts with 'M': 4900.00");
 
             }
             catch (Exception e)
