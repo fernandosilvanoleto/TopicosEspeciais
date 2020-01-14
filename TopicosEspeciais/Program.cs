@@ -248,15 +248,32 @@ namespace TopicosEspeciais
                     new Produto() { Id = 11, Name = "Level", Price = 70.0, Category = c1 }
                 };
 
-                var r1 = produtos.Where(p => p.Category.Tier == 1 && p.Price < 900.0);
+                // var r1 = produtos.Where(p => p.Category.Tier == 1 && p.Price < 900.0); // sintaxe através do lambda
+                var r1 =
+                    from p in produtos
+                    where p.Category.Tier == 1 && p.Price < 900.00
+                    select p;
                 Print("TIER 1 AND PRICE < 900: ", r1);
 
-                var r2 = produtos.Where(p => p.Category.Name == "Tools").Select(p => p.Name);
+                // var r2 = produtos.Where(p => p.Category.Name == "Tools").Select(p => p.Name);
+                var r2 =
+                    from p in produtos
+                    where p.Category.Name == "Tools"
+                    select p.Name;
                 Print("NAMES OF PRODUCTS FROM TOOLS = ", r2);
 
                 // criando um objeto anônimo no SELECT
                 // OBJETO ANÔNIMO - objeto que não está declarado
-                var r3 = produtos.Where(p => p.Name[0] == 'C').Select(p => new { p.Name, p.Price, CategoryName = p.Category.Name } );
+                //var r3 = produtos.Where(p => p.Name[0] == 'C').Select(p => new { p.Name, p.Price, CategoryName = p.Category.Name } );
+                var r3 =
+                    from p in produtos
+                    where p.Name[0] == 'C'
+                    select new
+                    {
+                        p.Name,
+                        p.Price,
+                        CategoryName = p.Category.Name
+                    };
                 Print("NAMES STARTED WITH 'C' AND ANONYMOUS OBJECT = ", r3);
 
                 var r4 = produtos.Where(p => p.Category.Tier == 1).OrderBy(p => p.Price).ThenBy(p => p.Name);
@@ -318,6 +335,8 @@ namespace TopicosEspeciais
                  * 11/01/2020
                  *
                  */
+
+
 
             }
             catch (Exception e)
