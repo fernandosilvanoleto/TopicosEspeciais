@@ -276,17 +276,31 @@ namespace TopicosEspeciais
                     };
                 Print("NAMES STARTED WITH 'C' AND ANONYMOUS OBJECT = ", r3);
 
-                var r4 = produtos.Where(p => p.Category.Tier == 1).OrderBy(p => p.Price).ThenBy(p => p.Name);
+                //var r4 = produtos.Where(p => p.Category.Tier == 1).OrderBy(p => p.Price).ThenBy(p => p.Name);
+                var r4 =
+                    from p in produtos
+                    where p.Category.Tier == 1
+                    orderby p.Name
+                    orderby p.Price
+                    select p;
                 Print("TIER 1 ORDER BY PRICE THEN BY NAME = ", r4);
 
                 // paginação
-                var r5 = r4.Skip(2).Take(4);
+                //var r5 = r4.Skip(2).Take(4);
+                var r5 =
+                    (from p in r4
+                     select p).Skip(2).Take(4);
                 Print("TIER 1 ORDER BY PRICE THEN BY NAME SKIP 2 TAKE 4", r5);
 
-                var r6 = produtos.FirstOrDefault();
+                //var r6 = produtos.FirstOrDefault();
+                var r6 = (from p in produtos select p).FirstOrDefault();
                 Console.WriteLine("First Or Default Test 1: " + r6);
 
-                var r7 = produtos.Where(p => p.Price > 3000.0).FirstOrDefault();
+                //var r7 = produtos.Where(p => p.Price > 3000.0).FirstOrDefault();
+                var r7 =
+                    (from p in produtos
+                     where p.Price > 3000.0
+                     select p).FirstOrDefault();
                 Console.WriteLine("First Or Default Test 2: " + r7);
                 Console.WriteLine();
 
@@ -299,7 +313,12 @@ namespace TopicosEspeciais
                 Console.WriteLine();
 
                 var r10 = produtos.Max(p => p.Price);
-                Console.WriteLine("Max Price: " + r10);
+                Console.WriteLine("Max Price of r10: " + r10);
+
+                var r101 =
+                    (from p in produtos
+                     select p.Price).Max();
+                Console.WriteLine("Max Price of r101: " + r101);
 
                 var r11 = produtos.Min(p => p.Price);
                 Console.WriteLine("Min Price: " + r11);
@@ -319,8 +338,26 @@ namespace TopicosEspeciais
                 var r16 = produtos.GroupBy(p => p.Category);
 
                 Console.WriteLine();
+                Console.WriteLine("Using GroupBy with Lambda");
 
                 foreach (IGrouping<Category, Produto> group in r16)
+                {
+                    Console.WriteLine("Category " + group.Key.Name + ":");
+                    foreach (Produto item in group)
+                    {
+                        Console.WriteLine(item);
+                    }
+                    Console.WriteLine();
+                }
+
+                Console.WriteLine();
+                Console.WriteLine("Using GroupBy with SQL");
+
+                var r17 =
+                    from p in produtos
+                    group p by p.Category;
+
+                foreach (IGrouping<Category, Produto> group in r17)
                 {
                     Console.WriteLine("Category " + group.Key.Name + ":");
                     foreach (Produto item in group)
