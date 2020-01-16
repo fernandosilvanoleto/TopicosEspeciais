@@ -452,6 +452,27 @@ namespace TopicosEspeciais
 
                 Console.WriteLine("Sum of Salary of people whose name starts with 'M': 4900.00");
 
+                Console.WriteLine("Removendo um email com contains!!!");
+
+                var peoples = funcionarios.Where(f => f.Salary > salaryCompare).OrderBy(f => f.Email).Select(f => new { f.Name, f.Email, f.Salary }).ToList();
+
+                Console.WriteLine();
+                Console.WriteLine("Example 01");
+                foreach (var item in peoples)
+                {
+                    Console.WriteLine(item);
+                }
+
+                // REMOVENDO UM CARACTERE DE UMA STRING DE UM ARRAY
+                peoples.RemoveAll(p => p.Name.ToLower().Contains("bo"));
+                
+                Console.WriteLine();
+                Console.WriteLine("Example 02 - removendo");
+                foreach (var item in peoples)
+                {
+                    Console.WriteLine(item);
+                }
+
             }
             catch (Exception e)
             {
